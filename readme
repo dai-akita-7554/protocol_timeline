@@ -1,0 +1,44 @@
+digraph {
+	graph [newrank=true]
+	node [fontname=meiryo]
+	edge [fontname=meiryo]
+	graph [fontname=meiryo]
+	date0 [label="2023/8/18" shape=plaintext]
+	time0 [label="" shape=plaintext]
+{rank=same; date0; time0;}	time1 [label="15:00" shape=plaintext]
+	time0 -> time1 [arrowhead=none style=invisible]
+	time2 [label="" shape=plaintext]
+	time1 -> time2 [arrowhead=none style=invisible]
+	date3 [label="2023/8/22" shape=plaintext]
+	date0 -> date3 [arrowhead=none style=invisible]
+	time3 [label="" shape=plaintext]
+	time2 -> time3 [arrowhead=none style=invisible]
+{rank=same; date3; time3;}	time4 [label="" shape=plaintext]
+	time3 -> time4 [arrowhead=none style=invisible]
+	time5 [label="" shape=plaintext]
+	time4 -> time5 [arrowhead=none style=invisible]
+	time6 [label="" shape=plaintext]
+	time5 -> time6 [arrowhead=none style=invisible]
+	pre1 [label="Preprocess of X" shape=box]
+	pre2 [label="Preprocess of Z " shape=box]
+	sample [label="Make A from a sample" shape=box]
+	subgraph "cluster_microscope " {
+		label="microscope "
+		recordXZ [label="Record data of the mixture" shape=box]
+		record1 [label="Record data of A" shape=box]
+		record2 [label="Record data of AXZ" shape=box]
+	}
+	subgraph "cluster_clean bench " {
+		label="clean bench "
+		mix [label="Mix X and Y" shape=box]
+		mix2 [label="Add A to XZ" shape=box]
+	}
+{rank=same; time0; pre1;}{rank=same; time0; pre2;}	pre2 -> mix [label=""]
+	pre1 -> mix [label=""]
+	time1 -> mix [arrowhead=none style=dashed]
+{rank=same; time1; mix;}	mix -> recordXZ [label="0:30"]
+{rank=same; time2; recordXZ;}{rank=same; time3; sample;}	sample -> record1 [label=""]
+{rank=same; time4; record1;}	record1 -> mix2 [label=""]
+	recordXZ -> mix2 [label=""]
+{rank=same; time5; mix2;}	mix2 -> record2 [label="1:00"]
+{rank=same; time6; record2;}{rank=min; time0}{rank=max; time6}}
