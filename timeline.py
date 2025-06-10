@@ -184,19 +184,19 @@ def from_md(mdfile):
     iter_line = iter(lines)
 
     # skip until body
-    re_body = re.compile('^ *<!-+ body -+>')
+    re_body = re.compile(r'^ *<!-+ body -+>')
     while(not re_body.match(next(iter_line))):
         pass
 
-    re_date = re.compile('# (.*)')
-    re_proc = re.compile('## (.*)')
+    re_date = re.compile(r'# (.*)')
+    re_proc = re.compile(r'## (.*)')
     re_proc_detail = {
-        'id': re.compile('\*(.*)\*'),
-        'label': re.compile(' ([^*_@<]*) *'),
-        'place': re.compile('@([^*_<]*)'),
-        'start': re.compile('_(.*)~'),
-        'end': re.compile('~(.*)_'),
-        'prev': re.compile('<!-+ (.*) -+>')
+        'id': re.compile(r'\*(.*)\*'),
+        'label': re.compile(r' ([^*_@<]*) *'),
+        'place': re.compile(r'@([^*_<]*)'),
+        'start': re.compile(r'_(.*)~'),
+        'end': re.compile(r'~(.*)_'),
+        'prev': re.compile(r'<!-+ (.*) -+>')
     }
 
     tl = Timeline()
