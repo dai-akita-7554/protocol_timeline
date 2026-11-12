@@ -21,20 +21,20 @@ digraph {
 	time5 -> time6 [arrowhead=none style=invisible]
 	time7 [label="" shape=plaintext]
 	time6 -> time7 [arrowhead=none style=invisible]
-	subgraph cluster_microscope {
-		label=microscope
-		recordXZ [label="Record data of the mixture" shape=box]
-		record1 [label="Record data of A" shape=box]
-		record2 [label="Record data of AXZ" shape=box]
-	}
-	pre1 [label="Preprocess of X" shape=box]
-	pre2 [label="Preprocess of Z" shape=box]
-	sample [label="Make A from a sample" shape=box]
 	subgraph "cluster_clean bench" {
 		label="clean bench"
 		mix [label="Mix X and Y" shape=box]
 		mix2 [label="Add A to XZ" shape=box]
 		clean [label="Clean up" shape=box]
+	}
+	pre1 [label="Preprocess of X" shape=box]
+	pre2 [label="Preprocess of Z" shape=box]
+	sample [label="Make A from a sample" shape=box]
+	subgraph cluster_microscope {
+		label=microscope
+		recordXZ [label="Record data of the mixture" shape=box]
+		record1 [label="Record data of A" shape=box]
+		record2 [label="Record data of AXZ" shape=box]
 	}
 {rank=same; time0; pre1;}{rank=same; time0; pre2;}	pre2 -> mix [label=""]
 	pre1 -> mix [label=""]
