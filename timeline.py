@@ -141,7 +141,7 @@ class Timeline:
                 dot.body.append('{rank=same; date' + str(i) + '; time' + str(i) + ';}')
         
         # second loop: add procedure nodes
-        for place in set([p.place for p in self]):
+        for place in dict.fromkeys([p.place for p in self]):
             if place is not None:
                 with dot.subgraph(name=f'cluster_{place}') as sg:
                     sg.attr(label=place)

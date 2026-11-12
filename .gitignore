@@ -162,3 +162,7 @@ cython_debug/
 # Regression test output
 /test_relative_reference
 /test_relative_reference.pdf
+/test_place_first_occurrence
+/test_place_first_occurrence.pdf
+/test_place_order
+/test_place_order.pdf
