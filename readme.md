@@ -30,6 +30,8 @@ text text text ...
 
 Relative starting times such as `_p+1:00~_` must refer to a previously listed procedure. If the reference is not found, `from_md()` or `Timeline.append()` raises a `ValueError` containing the procedure ID and the missing reference ID.
 
+Place groups are added to the graph in their order of first appearance, making their output order independent of Python's hash seed. Graphviz determines their final left-to-right arrangement.
+
 The program extract procedures written in the format after the line `<!--- body --->`.
 
 The procedures are supposed to be listed in chronological order. Parallel procedures can be expressed by the starting time format. Date information can be added by inserting the dates in the format:
@@ -52,7 +54,7 @@ To run the regression tests, execute the following command from the repository d
 python -m unittest discover -s tests -v
 ```
 
-The regression tests also generate `test_relative_reference.pdf` for visual inspection. Both the regression tests and the example PDF generation require the Python package `graphviz` and the Graphviz `dot` command.
+The regression tests also generate `test_relative_reference.pdf`, `test_place_first_occurrence.pdf`, and `test_place_order.pdf` for visual inspection. Both the regression tests and the example PDF generation require the Python package `graphviz` and the Graphviz `dot` command.
 
 
 Example
