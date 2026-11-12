@@ -67,12 +67,16 @@ Make A from the today's sample.
 
 Record data of the today's sample.
 
-## *mix2* Add A to XZ@clean bench <!-- record1, recordXZ -->
+## *mix2* Add A to XZ@clean bench <!-- record1,  recordXZ -->
 
 Mix A to the mixture of XZ and put it in the incubator for 1 hour.
 
 ## *record2* Record data of AXZ@microscope _mix2+1:00~_ <!-- mix2 -->
 
 Record data of the final composite.
+
+## *clean*  Clean up@clean bench  <!--  record2  -->
+
+Clean up the used tubes and dishes.
 
 
