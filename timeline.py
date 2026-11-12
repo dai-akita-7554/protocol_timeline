@@ -217,11 +217,13 @@ def from_md(mdfile):
                 for k, v in re_proc_detail.items():
                     i_search = v.search(i_proc.groups()[0])
                     if i_search:
-                        arg_dict[k] = i_search.groups()[0]
+                        arg_dict[k] = i_search.groups()[0].strip()
                     else:
                         arg_dict[k] = None
                 if arg_dict['prev'] is not None:
-                    arg_dict['prev'] = arg_dict['prev'].split(', ')
+                    arg_dict['prev'] = [
+                        id_prev.strip() for id_prev in arg_dict['prev'].split(',')
+                    ]
                 else:
                     arg_dict['prev'] = []
                 arg_dict['date'] = last_date
