@@ -52,6 +52,9 @@ class Timeline:
                 for proc in self:
                     if proc.id == target:
                         break
+                else:
+                    raise ValueError(
+                        f'Procedure {new_proc.id}: unknown relative time reference {target}')
                 new_proc.wait[proc.id] = hour + ':' + minute
 
                 if proc.end is not None:

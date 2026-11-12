@@ -28,12 +28,31 @@ text text text ...
   - `_p+1:00~_` means that the procecure starts one hour after `p`
 - `previous_procedures`: Comma-separated other procedures should be done before the procedure. These previous procedures are connected to the procedure by arrows in the timeline.
 
+Relative starting times such as `_p+1:00~_` must refer to a previously listed procedure. If the reference is not found, `from_md()` or `Timeline.append()` raises a `ValueError` containing the procedure ID and the missing reference ID.
+
 The program extract procedures written in the format after the line `<!--- body --->`.
 
 The procedures are supposed to be listed in chronological order. Parallel procedures can be expressed by the starting time format. Date information can be added by inserting the dates in the format:
 ```markdown
 # y/m/d
 ```
+
+
+Tests
+==
+
+You can generate a timeline from the example in this README by running:
+```sh
+python test.py
+```
+This creates `readme.pdf` in the current directory.
+
+To run the regression tests, execute the following command from the repository directory:
+```sh
+python -m unittest discover -s tests -v
+```
+
+The regression tests also generate `test_relative_reference.pdf` for visual inspection. Both the regression tests and the example PDF generation require the Python package `graphviz` and the Graphviz `dot` command.
 
 
 Example
